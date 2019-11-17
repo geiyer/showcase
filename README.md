@@ -18,7 +18,7 @@ Visual Studio Code or Visual Studio
 A step by step series of examples that tell you how to get a development env running
 
 1. Clone the Github repo
-2. Build the projects using the following commands
+2. Execute the following build command in the "showcase" directory: 
 
 ```
 dotnet build
@@ -28,7 +28,8 @@ dotnet build
 
 ## Running the Program
 
-To run the console application use,
+Execute the following command in the showcase directory:
+
 ```
 dotnet run
 ```
@@ -37,7 +38,7 @@ dotnet run
 
 ## Running the tests
 
-You can run the tests using the following command:
+Execute the following command in the "tests" directory:
 ```
 dotnet test
 ```
