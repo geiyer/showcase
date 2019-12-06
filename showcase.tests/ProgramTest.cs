@@ -2,10 +2,8 @@ using System;
 using NUnit.Framework;
 using Showcase;
 
-namespace Showcase.UnitTests
-{
+namespace Showcase.UnitTests {
     class ProgramTest {
-
 
     }
 }

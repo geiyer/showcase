@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -22,7 +22,7 @@ namespace Showcase {
             var streamTask = Client.GetStreamAsync (URL);
 
             var serializer = new DataContractJsonSerializer (typeof (List<Photo>));
-            return serializer.ReadObject (await streamTask) as List<Photo>;            
+            return serializer.ReadObject (await streamTask) as List<Photo>;
         }
     }
 }

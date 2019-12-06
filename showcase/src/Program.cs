@@ -12,9 +12,9 @@ namespace Showcase {
             Showcase.Validate v = new Validate ();
 
             if (!v.IsAlbumValid (inputAlbumId)) { Console.WriteLine ("Enter a valid Album Number. The Album Number should be numeric."); } else {
-               await  PrintPhotos (inputAlbumId);
+                await PrintPhotos (inputAlbumId);
             }
-            Console.WriteLine ("Ending the program");            
+            Console.WriteLine ("Ending the program");
 
         }
 
