@@ -7,17 +7,22 @@ using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 namespace Showcase {
     public class Photos {
-        public async Task<List<Photo>> Get (int albumId) {
+
+        public HttpClient Client { get; }
+        public Photos () {
             HttpClient client = new HttpClient ();
             client.DefaultRequestHeaders.Accept.Clear ();
             client.DefaultRequestHeaders.Add ("User-Agent", "Technical Showcase");
-            string URL = String.Format ("https://jsonplaceholder.typicode.com/photos?albumId={0}", albumId);
+            client.BaseAddress = new Uri ("https://jsonplaceholder.typicode.com/");
 
-            var streamTask = client.GetStreamAsync (URL);
+            Client = client;
+        }
+        public async Task<List<Photo>> Get (int albumId) {
+            string URL = String.Format ("photos?albumId={0}", albumId);
+            var streamTask = Client.GetStreamAsync (URL);
 
             var serializer = new DataContractJsonSerializer (typeof (List<Photo>));
-            var photos = serializer.ReadObject (await streamTask) as List<Photo>;
-            return photos;
+            return serializer.ReadObject (await streamTask) as List<Photo>;            
         }
     }
 }
