@@ -4,13 +4,11 @@ using System.Threading.Tasks;
 
 namespace Showcase {
     public class Launcher {
-        //private string[] args;
-
         public async Task<bool> Run (string inputAlbumId) {
             Showcase.Validate v = new Validate ();
             Photos showcase = new Photos ();
             if (!v.IsAlbumValid (inputAlbumId)) {
-                Console.WriteLine ("Enter a valid Album Number. The Album Number should be numeric.");
+                Console.WriteLine ("The Album Number should be numeric. Exiting the program.");
                 return false;
             } else {
                 await PrintPhotos (showcase, inputAlbumId);
@@ -22,12 +20,10 @@ namespace Showcase {
             int id;
             int.TryParse (albumId, out id);
             var photos = await showcase.Get (id);
-            if (photos != null) {
-                FormatOutput f = new FormatOutput ();
-                foreach (var photo in photos)
-                    Console.WriteLine (f.Output (photo.Id, photo.Title));
-            }
-        }
+            FormatOutput f = new FormatOutput ();
+            foreach (var photo in photos)
+                Console.WriteLine (f.Output (photo.Id, photo.Title));
 
+        }
     }
 }

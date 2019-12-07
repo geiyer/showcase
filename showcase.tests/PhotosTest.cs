@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Showcase;
-using System.Collections.Generic;
 namespace Showcase.UnitTests {
 
     public class PhotosTest {
@@ -31,7 +31,7 @@ namespace Showcase.UnitTests {
         [TestCase (1, 1, "accusamus beatae ad facilis cum similique qui sunt")]
         public async Task TestPhotoID_Title (int albumId, int photoId, string title) {
             var photos = await _showcase.Get (albumId);
-            var photo = photos.Find(item => item.Id == photoId);
+            var photo = photos.Find (item => item.Id == photoId);
             Assert.AreEqual (photo.Id, photoId);
             Assert.AreEqual (photo.Title, title);
 

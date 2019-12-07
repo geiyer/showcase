@@ -1,1 +1,1 @@
-dotnet watch  test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info 
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
