@@ -1,34 +1,32 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+
 
 namespace Showcase {
     public class Program {
-        static async Task Main (string[] args) {
-            Task.Delay (0).GetAwaiter ().GetResult ();
-            Console.WriteLine ("Enter the Album Number: ");
+        // private static Launcher launcher;
+        // public static Launcher Launcher { get; set; }
+        // public static Program () {
+        //     launcher = new Launcher ();
+        //     Launcher = launcher;
+        // }
+        // public static async Task Main (String[] args) {
+        //     Launcher launcher = new Launcher();
+        //     inputAlbumId = Console.ReadLine ();
+        //     await launcher.Run (args);
+        // }
+
+
+        private static Launcher launcher = new Launcher();
+
+        public static async Task Main(String[] args) {
             string inputAlbumId;
             inputAlbumId = Console.ReadLine ();
-            Showcase.Validate v = new Validate ();
-
-            if (!v.IsAlbumValid (inputAlbumId)) { Console.WriteLine ("Enter a valid Album Number. The Album Number should be numeric."); } else {
-                await PrintPhotos (inputAlbumId);
-            }
-            Console.WriteLine ("Ending the program");
-
+            await launcher.Run(inputAlbumId);
         }
 
-        static async Task PrintPhotos (String input) {
-            Photos showcase = new Photos ();
-            int albumId;
-            int.TryParse (input, out albumId);
-            var photos = await showcase.Get (albumId);
-            if (photos != null)
-                Console.WriteLine ("Fetching all photos for Album #:  " + Convert.ToString (albumId));
-            FormatOutput f = new FormatOutput ();
-
-            foreach (var photo in photos)
-                Console.WriteLine (f.Output (photo.Id, photo.Title));
+        static void setLauncher(Launcher launcher) {
+            Program.launcher = launcher;
         }
 
     }

@@ -21,6 +21,9 @@ A step by step series of examples that tell you how to get a development env run
 2. Execute the following build command in the "showcase" directory: 
 
 ```
+
+dotnet add package coverlet.msbuild
+dotnet tool install -g dotnet-reportgenerator-globaltool
 dotnet build
 ```
 
@@ -41,6 +44,8 @@ dotnet run
 Execute the following command in the "tests" directory:
 ```
 dotnet test
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+ReportGenerator "-reports:coverage.opencover.xml" "-targetdir:report"   
 ```
 
 ## Authors
