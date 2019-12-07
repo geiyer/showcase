@@ -1,42 +1,26 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace Showcase {
     [DataContract (Name = "photo")]
+    [ExcludeFromCodeCoverage]
     public class Photo {
 
-        private int _albumId;
         [DataMember (Name = "albumId")]
-        public int AlbumId {
-            get { return this._albumId; }
-            set { this._albumId = value; }
-        }
+        public int AlbumId { get; set; }
 
-        private int _id;
         [DataMember (Name = "id")]
-        public int Id {
-            get { return this._id; }
-            set { this._id = value; }
-        }
+        public int Id { get; set; }
 
-        private string _title;
         [DataMember (Name = "title")]
-        public string Title {
-            get { return this._title; }
-            set { this._title = value; }
-        }
-        private string _url;
+        public string Title { get; set; }
+
         [DataMember (Name = "url")]
-        public string URL {
-            get { return this._url; }
-            set { this._url = value; }
-        }
-        private string _thumbnailUrl;
+        public string URL { get; set; }
+
         [DataMember (Name = "thumbnailurl")]
-        public string ThumbnailUrl {
-            get { return this._thumbnailUrl; }
-            set { this._thumbnailUrl = value; }
-        }
+        public string ThumbnailUrl { get; set; }
 
     }
 }
